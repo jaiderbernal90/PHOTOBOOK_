@@ -1,0 +1,26 @@
+{
+  "name": "photobook",
+  "version": "1.0.0",
+  "description": "Proyecto final de bootcamp desarrollo web fullstack. Rest API con NODE JS y Express, Front End con Angular y DB con Mongo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaiderbernal90/photobook.git"
+  },
+  "author": "Jaider Alejandro Bernal Camacho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaiderbernal90/photobook/issues"
+  },
+  "homepage": "https://github.com/jaiderbernal90/photobook#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
