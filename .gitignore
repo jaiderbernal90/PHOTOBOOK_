@@ -1,6 +1,7 @@
 <<<<<<< HEAD
-/node_modules
 /public/img
+/node_modules
+
 =======
 # Logs
 logs
