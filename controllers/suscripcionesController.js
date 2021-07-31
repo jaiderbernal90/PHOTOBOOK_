@@ -9,24 +9,24 @@ exports.nuevaSuscripcion = async (req,res,next) => {
         await suscripcion.save();
         res.json({mensaje:'Se agrego la suscripcion correctamente'});
     }catch(error){
+        res.json({error:'No se agrego la suscripcion'});
         console.log(error);
         next();
     }
 
 }
 
-
 // Muestra todas los suscripciones
-
 exports.mostrarSuscripciones = async (req, res, next) => {
     try{
-        const suscripciones = await Suscripciones.find({});
+        const suscripciones = await Suscripciones.find({}).sort({_id:-1});
         res.json(suscripciones);
     }catch (error){
         console.log(error);
         next();
     }
 }
+
 
 // Muestra una suscripcion por su ID
 exports.mostrarSuscripcion = async (req,res,next) => {

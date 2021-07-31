@@ -21,13 +21,29 @@ exports.nuevoUsuario = async (req, res, next) =>{
 
 exports.mostrarUsuarios = async (req, res, next) => {
     try{
-        const usuarios = await Usuarios.find({});
+        const usuarios = await Usuarios.find({}).sort({_id:-1});
         res.json(usuarios);
     }catch (error){
         console.log(error);
         next();
     }
 }
+
+exports.validarLogin = async (req, res, next) => {
+    const usuario = await Usuarios.find({email: req.body.email},{"email":1, "password":1});
+    
+    if(!usuario || usuario.length < 1){
+        console.log('LLEGUE');
+        res.json({mensaje : 'Ese usuario no existe'});
+        next();
+    }
+
+    console.log(usuario);
+
+    // Mostrar el usuario
+    res.json(usuario);
+}
+
 
 // Muestra un usuario por su ID
 exports.mostrarUsuario = async (req,res,next) => {
@@ -50,7 +66,7 @@ exports.actualizarUsuario = async (req,res,next) => {
             req.body, {
                     new : true
             });
-        res.json(usuario);
+        res.json({mensaje: 'Usuario actualizado',res: usuario});
     }catch(error){
         console.log(error);
         next();
