@@ -19,7 +19,7 @@ const historiasSchema = new Schema({
         type: String,
         trim: true
     },
-    author_id:{
+    autor:{
         type: String,
         trim: true
     },
